@@ -4,6 +4,10 @@
 
 Sistema CRUD desenvolvido em React.
 
+## 📸 Preview
+
+![Preview](docs/TelaInicial.png)
+
 ## 🚀 Tecnologias
 
 - React
