@@ -1,4 +1,10 @@
-function UserLog({ logs }) {
+import type { Log } from "../types/Log";
+
+type UserLogProps = {
+  logs: Log[];
+};
+
+function UserLog({ logs }: UserLogProps) {
   return (
     <div className="space-y-2">
       <h2 className="text-lg font-bold text-white">Logs do Sistema</h2>

@@ -1,8 +1,12 @@
 import { useState } from "react";
 
-function AddUsers({ onAddUserSubmit }) {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+type AddUsersProps = {
+  onAddUserSubmit: (name: string, description: string) => void;
+};
+
+function AddUsers({ onAddUserSubmit }: AddUsersProps) {
+  const [name, setName] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
 
   return (
     <div className="space-y-4 flex flex-col">
@@ -11,7 +15,9 @@ function AddUsers({ onAddUserSubmit }) {
         placeholder="Nome do usuário"
         className="p-2 rounded-md text-black"
         value={name}
-        onChange={(event) => setName(event.target.value)}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+          setName(event.target.value)
+        }
       />
 
       <input
@@ -19,7 +25,9 @@ function AddUsers({ onAddUserSubmit }) {
         placeholder="Conhecimento"
         className="p-2 rounded-md text-black"
         value={description}
-        onChange={(event) => setDescription(event.target.value)}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+          setDescription(event.target.value)
+        }
       />
 
       <button
@@ -28,6 +36,7 @@ function AddUsers({ onAddUserSubmit }) {
           if (!name || !description) {
             return alert("Preencha todos os campos!");
           }
+
           onAddUserSubmit(name, description);
           setName("");
           setDescription("");

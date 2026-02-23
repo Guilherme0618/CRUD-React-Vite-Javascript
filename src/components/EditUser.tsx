@@ -1,8 +1,15 @@
 import { useState } from "react";
+import type { User } from "../types/User";
 
-function EditUser({ user, onSave, onCancel }) {
-  const [name, setName] = useState(user.name);
-  const [description, setDescription] = useState(user.description);
+type EditUserProps = {
+  user: User;
+  onSave: (updatedUser: User) => void;
+  onCancel: () => void;
+};
+
+function EditUser({ user, onSave, onCancel }: EditUserProps) {
+  const [name, setName] = useState<string>(user.name);
+  const [description, setDescription] = useState<string>(user.description);
 
   return (
     <div className="fixed inset-0 bg-black/60 flex justify-center items-center">
@@ -12,13 +19,17 @@ function EditUser({ user, onSave, onCancel }) {
         <input
           className="p-2 rounded-md text-black w-full"
           value={name}
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setName(event.target.value)
+          }
         />
 
         <input
           className="p-2 rounded-md text-black w-full"
           value={description}
-          onChange={(event) => setDescription(event.target.value)}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setDescription(event.target.value)
+          }
         />
 
         <div className="flex gap-2 justify-end">
@@ -28,7 +39,7 @@ function EditUser({ user, onSave, onCancel }) {
 
           <button
             onClick={() => {
-              if (confirm("Deseja Efitar Usuario?")) {
+              if (confirm("Deseja Editar Usuario?")) {
                 onSave({ ...user, name, description });
               }
             }}

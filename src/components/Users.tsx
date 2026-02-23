@@ -1,10 +1,18 @@
 import { ChevronRightIcon, Pencil, Trash2Icon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import type { User } from "../types/User";
 
-function Users({ users, onUserClick, onDeleteUser, onEditUser }) {
+type UsersProps = {
+  users: User[];
+  onUserClick: (id: string) => void;
+  onDeleteUser: (id: string) => void;
+  onEditUser: (user: User) => void;
+};
+
+function Users({ users, onUserClick, onDeleteUser, onEditUser }: UsersProps) {
   const navigate = useNavigate();
 
-  function onSeeDetailsClick(user) {
+  function onSeeDetailsClick(user: User) {
     const query = new URLSearchParams();
     query.set("name", user.name);
     query.set("description", user.description);
@@ -19,7 +27,7 @@ function Users({ users, onUserClick, onDeleteUser, onEditUser }) {
           <button
             onClick={() => onUserClick(user.id)}
             className={`flex-1 p-2 rounded-md text-white text-left bg-slate-500
-            ${!user.isAvailable && "line-through bg-red-500"}`}
+            ${!user.isAvailable ? "line-through bg-red-400" : ""}`}
           >
             {user.name}
           </button>
