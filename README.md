@@ -11,7 +11,7 @@ Sistema CRUD desenvolvido em React.
 ## 🚀 Tecnologias
 
 - React
-- JavaScript
+- TypeScript
 - TailwindCSS
 - UUID
 - LocalStorage
