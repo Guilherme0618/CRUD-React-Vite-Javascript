@@ -1,8 +1,41 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Gerenciador de Usuários
 
-Currently, two official plugins are available:
+Sistema CRUD desenvolvido em React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📸 Preview
+
+![Preview](docs/TelaInicial.png)
+
+## 🚀 Tecnologias
+
+- React
+- JavaScript
+- TailwindCSS
+- UUID
+- LocalStorage
+
+## 📌 Funcionalidades
+
+- Criar usuários
+- Editar usuários
+- Excluir usuários
+- Filtro por nome
+- Logs persistentes
+- Modal de edição
+
+## 📂 Estrutura
+
+- components/
+- pages/
+- App.tsx
+
+## 💾 Persistência
+
+Dados e logs armazenados no LocalStorage.
+
+
+```bash
+npm install
+npm run dev
